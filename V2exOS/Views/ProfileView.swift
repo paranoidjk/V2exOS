@@ -64,6 +64,11 @@ struct ProfileView: View {
             HStack {
                 TextField("Personal Access Token", text: $accessToken, prompt: Text("00000000-0000-0000-0000-000000000000"))
                     .frame(width: 450)
+                    .onChange(of: accessToken) { newValue in
+                        // https://v2ex.com/settings/tokens 默认选中复制过来是不合法的
+                        accessToken = newValue.trimmingCharacters(in: .whitespacesAndNewlines)
+                    }
+
                 
                 Button {
                     showingPopover.toggle()
