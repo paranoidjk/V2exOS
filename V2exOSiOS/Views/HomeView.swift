@@ -38,6 +38,7 @@ struct HomeView: View {
                     }
             }
             .pagerTabStripViewStyle(.scrollableBarButton(tabItemSpacing: 20))
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
             .toolbar(.hidden, for: .automatic)
         }
     }
